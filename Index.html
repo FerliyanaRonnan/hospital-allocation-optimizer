@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lembar Rencana Alokasi Simulator Final IMC26EC35</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -231,12 +232,12 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
 <div class="titleblock">
   <div class="wrap tb-row">
     <div class="tb-id"><b>IMC26EC35 · Udah Bukan Maba</b> &nbsp;BABAK FINAL</div>
-    <div class="tb-rev">FINAL · IPB MATHEMATICS CHALLENGE 2026</div>
+    <div class="tb-rev">REV. FINAL · IPB MATHEMATICS CHALLENGE 2026</div>
   </div>
 </div>
 
 <div class="wrap hero">
-  <div class="kicker"><span class="dot2"></span>SIMULATOR LIVE</div>
+  <div class="kicker"><span class="dot2"></span>SIMULATOR LIVE &mdash; BUKAN REKAMAN</div>
   <h1>Simulator alokasi <span class="grad">40 unit rumah sakit</span>, dijalankan langsung di hadapan Anda</h1>
   <p class="lede">Model pemrograman linear di esai kami dijalankan ulang secara langsung di sini. Geser anggaran dan batas alokasi, lalu lihat sendiri bagaimana 40 unit rumah sakit baru terdistribusi ke kabupaten/kota Jawa Timur dengan risiko tertinggi.</p>
   <div class="stat-strip">
@@ -251,7 +252,7 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
   <div class="panel hero-panel" id="simulator">
     <span class="tick-tr"></span><span class="tick-br"></span>
     <div class="panel-label">SIMULATOR ALOKASI</div>
-    <h2 class="panel-title">Geser, jalankan, lihat trade off nya secara langsung</h2>
+    <h2 class="panel-title">Geser, jalankan, lihat trade-off-nya secara langsung</h2>
 
     <div class="sim-scope">
       Simulator ini menjalankan algoritma yang matematis setara dengan model LP di esai kami (dibuktikan pada bagian metodologi), diterapkan pada <b>11 kabupaten/kota berisiko tertinggi</b> di Jawa Timur mencakup seluruh wilayah yang benar-benar menerima alokasi pada kedua skenario asli. Wilayah tersentuh dan unit terpakai di bawah ini telah diverifikasi sama persis dengan keluaran solver CBC pada notebook kami.
@@ -296,7 +297,7 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
         <button type="button" id="mapReset" aria-label="Atur ulang tampilan peta">&#8634;</button>
       </div>
     </div>
-    <div class="map-info" id="mapInfo">Arahkan kursor atau ketuk wilayah pada peta untuk detail &mdash; peta bisa digeser dan di zoom.</div>
+    <div class="map-info" id="mapInfo">Arahkan kursor atau ketuk wilayah pada peta untuk detail &mdash; peta bisa digeser dan di-zoom.</div>
   </div>
 
   <div class="panel">
@@ -339,12 +340,25 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
   <div class="panel">
     <span class="tick-tr"></span><span class="tick-br"></span>
     <div class="panel-label">REKOMENDASI</div>
+    <h2 class="panel-title">Satu kalimat penutup untuk juri</h2>
     <ul class="rec-list">
       <li><span class="n">01</span> Gunakan pendekatan Skenario B: batasi alokasi maksimum per wilayah agar anggaran tidak menumpuk di segelintir tempat.</li>
-      <li><span class="n">02</span> Tetap prioritaskan wilayah dengan defisit dan skor risiko tertinggi — bukan yang termudah dibangun.</li>
+      <li><span class="n">02</span> Tetap prioritaskan wilayah dengan defisit dan skor risiko tertinggi bukan yang termudah dibangun.</li>
       <li><span class="n">03</span> Solusi paling efisien secara matematis (Skenario A) belum tentu paling tepat secara kebijakan publik — dan simulator di atas membuktikannya secara langsung, bukan lewat klaim.</li>
     </ul>
   </div>
+
+  <div class="panel">
+    <span class="tick-tr"></span><span class="tick-br"></span>
+    <div class="panel-label">BERKAS PENDUKUNG</div>
+    <h2 class="panel-title">Unduh dokumen lengkap</h2>
+    <div class="dl-row">
+      <a class="btn go" href="#" id="dl-essay" data-kind="essay">&darr; Esai lengkap (PDF)</a>
+      <a class="btn" href="#" id="dl-notebook" data-kind="notebook">&darr; Notebook analisis (.ipynb)</a>
+      <a class="btn" href="#" id="dl-data" data-kind="csv">&darr; Tabel wilayah prioritas (CSV)</a>
+    </div>
+  </div>
+</div>
 
 <footer class="wrap">
   <div class="foot-row">
@@ -355,6 +369,9 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
 
 <script>
 (function(){
+  // ============ region data (11 kab/kota berisiko tertinggi, terverifikasi) ============
+  // Sumber: notebook Cell 10 (skor_risiko_norm) & Cell 11 (defisit_rs).
+  // Terbukti mereproduksi persis keluaran solver asli untuk anggaran=40 pada cap tanpa-batas maupun cap=4.
   var REGIONS = [
     {name:'Trenggalek',   defisit:6,  risk:1.00},
     {name:'Sampang',      defisit:8,  risk:0.97},
