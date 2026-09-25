@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lembar Rencana Alokasi Simulator Final IMC25EC35</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -231,13 +230,13 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
 
 <div class="titleblock">
   <div class="wrap tb-row">
-    <div class="tb-id"><b>IMC25EC35</b> &nbsp;Udah Bukan Maba</div>
+    <div class="tb-id"><b>IMC26EC35 · Udah Bukan Maba</b> &nbsp;BABAK FINAL</div>
     <div class="tb-rev">FINAL · IPB MATHEMATICS CHALLENGE 2026</div>
   </div>
 </div>
 
 <div class="wrap hero">
-  <div class="kicker"><span class="dot2"></span>SIMULATOR LIVE &mdash; BUKAN REKAMAN</div>
+  <div class="kicker"><span class="dot2"></span>SIMULATOR LIVE</div>
   <h1>Simulator alokasi <span class="grad">40 unit rumah sakit</span>, dijalankan langsung di hadapan Anda</h1>
   <p class="lede">Model pemrograman linear di esai kami dijalankan ulang secara langsung di sini. Geser anggaran dan batas alokasi, lalu lihat sendiri bagaimana 40 unit rumah sakit baru terdistribusi ke kabupaten/kota Jawa Timur dengan risiko tertinggi.</p>
   <div class="stat-strip">
@@ -251,7 +250,7 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
 <div class="wrap">
   <div class="panel hero-panel" id="simulator">
     <span class="tick-tr"></span><span class="tick-br"></span>
-    <div class="panel-label">PANEL 01 SIMULATOR ALOKASI</div>
+    <div class="panel-label">SIMULATOR ALOKASI</div>
     <h2 class="panel-title">Geser, jalankan, lihat trade off nya secara langsung</h2>
 
     <div class="sim-scope">
@@ -297,12 +296,12 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
         <button type="button" id="mapReset" aria-label="Atur ulang tampilan peta">&#8634;</button>
       </div>
     </div>
-    <div class="map-info" id="mapInfo">Arahkan kursor atau ketuk wilayah pada peta untuk detail &mdash; peta bisa digeser dan di-zoom.</div>
+    <div class="map-info" id="mapInfo">Arahkan kursor atau ketuk wilayah pada peta untuk detail &mdash; peta bisa digeser dan di zoom.</div>
   </div>
 
   <div class="panel">
     <span class="tick-tr"></span><span class="tick-br"></span>
-    <div class="panel-label">PANEL 03 ANGKA RESMI HASIL SOLVER</div>
+    <div class="panel-label">ANGKA RESMI HASIL SOLVER</div>
     <h2 class="panel-title">Nilai fungsi tujuan (Z), dihitung atas seluruh 38 kabupaten/kota</h2>
     <p style="max-width:60ch; font-size:14px;">Angka berikut adalah keluaran resmi solver CBC pada notebook, dihitung atas seluruh 38 kabupaten/kota Jawa Timur (bukan hanya 11 yang tampil di simulator di atas) dicantumkan sebagai rujukan tetap, terpisah dari pembacaan langsung simulator.</p>
     <div class="spec-grid">
@@ -321,7 +320,7 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
 
   <div class="panel">
     <span class="tick-tr"></span><span class="tick-br"></span>
-    <div class="panel-label">PANEL 04 UJI SENSITIVITAS</div>
+    <div class="panel-label">UJI SENSITIVITAS</div>
     <h2 class="panel-title">Kenapa cap 4 dan anggaran 40 bukan angka sembarang</h2>
     <div class="two-col">
       <div class="mini-chart">
@@ -339,16 +338,13 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
 
 <footer class="wrap">
   <div class="foot-row">
-    <span>IMC25EC35 MENAVIGASI KETIMPANGAN LAYANAN KESEHATAN</span>
-    <span>Ferliyana Ronnan, Mario Zaqy Astamar Putra, Muhammad Thoriq Sadewo · IPB MATHEMATICS CHALLENGE 2026</span>
+    <span>IMC26EC35 · Udah Bukan Maba MENAVIGASI KETIMPANGAN LAYANAN KESEHATAN</span>
+    <span>Ferliyana Ronnan, Mario Zaqy, Thoriq Sadewo</span>
   </div>
 </footer>
 
 <script>
 (function(){
-  // ============ region data (11 kab/kota berisiko tertinggi, terverifikasi) ============
-  // Sumber: notebook Cell 10 (skor_risiko_norm) & Cell 11 (defisit_rs).
-  // Terbukti mereproduksi persis keluaran solver asli untuk anggaran=40 pada cap tanpa-batas maupun cap=4.
   var REGIONS = [
     {name:'Trenggalek',   defisit:6,  risk:1.00},
     {name:'Sampang',      defisit:8,  risk:0.97},
@@ -773,8 +769,8 @@ footer{ padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px)); border-top:
     return new Blob([bytes], {type:mime});
   }
   var FILES = {
-    essay:    { filename:'IMC2026_Esai_IMC25EC35.pdf', getBlob:function(){ return b64ToBlob(PDF_B64,'application/pdf'); } },
-    notebook: { filename:'IMC2026_Notebook_IMC25EC35.ipynb', getBlob:function(){ return b64ToBlob(NB_B64,'application/json'); } },
+    essay:    { filename:'IMC2026_Esai_IMC26EC35.pdf', getBlob:function(){ return b64ToBlob(PDF_B64,'application/pdf'); } },
+    notebook: { filename:'IMC2026_Notebook_IMC26EC35.ipynb', getBlob:function(){ return b64ToBlob(NB_B64,'application/json'); } },
     csv:      { filename:'IMC2026_Tabel_Wilayah_Prioritas.csv', getBlob:function(){ return new Blob([CSV_TEXT], {type:'text/csv'}); } }
   };
   (async function(){
